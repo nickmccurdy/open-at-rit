@@ -74,3 +74,5 @@ gem 'chronic', '~> 0.9'
 
 # Use New Relic for monitoring
 gem 'newrelic_rpm'
+
+gem 'nokogiri'
