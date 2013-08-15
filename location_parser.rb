@@ -20,7 +20,7 @@ module LocationParser
     #doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').each do |node|
       if node.content == '' && node['id'] == node['name']
-        puts node
+        puts node.next
         table =  next_node_with(node.parent, :name, 'table')
         rows =  table.search('tr')[1..-1]
         details = rows.map do |row|
