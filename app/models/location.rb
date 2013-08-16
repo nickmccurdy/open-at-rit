@@ -10,8 +10,8 @@ class Location < ActiveRecord::Base
   # of the week. Each Range represents one part of the hours (open and close
   # time). Each Integer represents the number of seconds after midnight that
   # the Location opens or closes.
-  serialize :weekdays, Array
-  serialize :weekends, Array
+  # TODO: Update this description for the new hours property
+  serialize :hours, Array
 
   # Locations are sorted by name in alphabetical order.
   default_scope { order 'name ASC' }
@@ -47,12 +47,12 @@ class Location < ActiveRecord::Base
   def open?(time = Time.current)
     # Figure out if the time is between the hours for the appropriate part of
     # the week
-    hours = Location.weekday?(time) ? weekdays : weekends
-    return false if hours.blank?
+    part_of_week = Location.weekday?(time) ? hours[0] : hours[1]
+    return false if part_of_week.blank?
 
     # TODO: find a better way to do this that won't break when moving between
     # weekdays and weekends
-    hours.any? do |time_range|
+    part_of_week.any? do |time_range|
       logger.debug "Checking to see if #{time} is between " \
                    "#{time_range.begin} and #{time_range.end}."
       start_time = time.midnight + time_range.begin
@@ -81,7 +81,8 @@ class Location < ActiveRecord::Base
       end
     end
 
-    weekdays.map!(&adjust) if weekdays.present?
-    weekends.map!(&adjust) if weekends.present?
+    hours.each do |period|
+      period.map!(&adjust) if period.present?
+    end
   end
 end
