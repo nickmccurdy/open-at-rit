@@ -37,9 +37,11 @@ end
 
 def parse_hours_for(location)
   location.merge(
-    'weekdays' => parse_hours(location['weekdays']),
-    'weekends' => parse_hours(location['weekends'])
-  )
+    'hours' => [
+      parse_hours(location['weekdays']),
+      parse_hours(location['weekends'])
+    ]
+  ).except('weekdays', 'weekends')
 end
 
 # Create a Location object for each location from the data file

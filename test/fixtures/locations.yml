@@ -2,5 +2,4 @@
 
 corner_store:
   name: The Corner Store
-  weekdays: [!ruby/range <%= 8.hour %>...<%= 2.hour %>]
-  weekends: [!ruby/range <%= 10.5.hour %>...<%= 24.hour %>]
+  hours: [[!ruby/range <%= 8.hour %>...<%= 2.hour %>], [!ruby/range <%= 10.5.hour %>...<%= 24.hour %>]]
