@@ -29,13 +29,19 @@ module LocationScraper
     #doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').map do |node|
       if node.content == '' && node['id'] == node['name']
-        name = node.next.to_s
+        new_node = {
+          'name' => node.next.to_s,
+          'hours' => {}
+        }
+
         table =  next_node_with(node.parent, :name, 'table')
         rows =  table.search('tr')[1..-1]
-        details = rows.map do |row|
-          row.search('td//text()').map { |text|  text.to_s.strip }
+        rows.each do |row|
+          results = row.search('td//text()').map { |text|  text.to_s.strip }
+          new_node['hours'][results.first] = results[1..-1]
         end
-        [name, details]
+
+        new_node
       end
     end.compact
   end
