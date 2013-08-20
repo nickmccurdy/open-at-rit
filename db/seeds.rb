@@ -8,6 +8,7 @@
 
 require 'nokogiri'
 require 'open-uri'
+require 'yaml'
 
 # Based off of https://gist.github.com/toroidal-code/6235807
 
@@ -26,17 +27,17 @@ module LocationParser
   def locations(page = :normal)
     doc = Nokogiri.HTML open @pages[page]
     #doc.css('.field-item h3').map{ |location| location.content.strip }
-    doc.css('h3 a').each do |node|
+    doc.css('h3 a').map do |node|
       if node.content == '' && node['id'] == node['name']
-        puts node.next
+        name = node.next.to_s
         table =  next_node_with(node.parent, :name, 'table')
         rows =  table.search('tr')[1..-1]
         details = rows.map do |row|
           row.search('td//text()').map { |text|  text.to_s.strip }
         end
-        puts details
+        [name, details]
       end
-    end
+    end.compact
   end
 
   private
@@ -50,4 +51,6 @@ module LocationParser
 
 end
 
-LocationParser.locations
+locations = LocationParser.locations
+puts locations.to_yaml
+#Location.create! locations
