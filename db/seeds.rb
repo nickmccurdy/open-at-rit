@@ -29,8 +29,11 @@ module LocationScraper
     #doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').map do |node|
       if node.content == '' && node['id'] == node['name']
+        title = node.next.to_s
         new_node = {
-          'name' => node.next.to_s,
+          # Prototype regex for matching locations and descriptions:
+          # /(.+)\s+\(([^()]+)\)\s*/
+          'name' => title.match(/\s*([^() ][^()]+[^() ])\s*/).captures.first,
           'hours' => {}
         }
 
