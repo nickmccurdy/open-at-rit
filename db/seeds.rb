@@ -52,9 +52,7 @@ module LocationScraper
   private
 
   def next_node_with(current, attribute, cond)
-    while current && current.send(attribute) != cond
-      current = current.next
-    end
+    current = current.next while current && current.send(attribute) != cond
     current
   end
 
