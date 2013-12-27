@@ -1,4 +1,4 @@
-# [Open at RIT](http://openatrit.herokuapp.com)
+# Open at RIT
 [![Build Status](https://secure.travis-ci.org/thenickperson/open-at-rit.png?branch=master)](http://travis-ci.org/thenickperson/open-at-rit)
 [![Dependency Status](https://gemnasium.com/thenickperson/open-at-rit.png)](https://gemnasium.com/thenickperson/open-at-rit)
 [![Code Climate](https://codeclimate.com/github/thenickperson/open-at-rit.png)](https://codeclimate.com/github/thenickperson/open-at-rit)
@@ -9,7 +9,7 @@ which dining locations are currently open at the [Rochester Institute of
 Technology](https://www.rit.edu).
 
 ## Project Status
-__In development. A public alpha is up.__
+__In development. Fairly unstable.__
 
 
 ## Definite Features (in development)
