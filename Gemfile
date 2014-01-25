@@ -45,9 +45,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.4.2'
+gem 'jbuilder', '~> 2.0.2'
 
-gem 'yard', '~> 0.8.6.1'
+gem 'yard'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -61,10 +61,10 @@ group :test do
 end
 
 group :development do
-  gem 'binding_of_caller', '~> 0.6'
-  gem 'better_errors', '~> 0.9'
+  gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'foreman'
-  gem 'yard-activerecord', '~> 0.0.8'
+  gem 'yard-activerecord'
   gem 'redcarpet'
 end
 
