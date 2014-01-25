@@ -1,5 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# This file should contain all the record creation needed to seed the database
+# with its default values.  The data can then be loaded with the rake db:seed
+# (or created alongside the db with db:setup).
 #
 # Examples:
 #
@@ -20,8 +21,10 @@ Chronic.time_class = Time.zone
 def parse_time_range(time_string)
   return nil if time_string.nil?
 
-  start_time = Chronic.parse(time_string.split('-').first.strip).seconds_since_midnight
-  end_time   = Chronic.parse(time_string.split('-').last.strip).seconds_since_midnight
+  start_time =
+    Chronic.parse(time_string.split('-').first.strip).seconds_since_midnight
+  end_time =
+    Chronic.parse(time_string.split('-').last.strip).seconds_since_midnight
 
   start_time...end_time
 end

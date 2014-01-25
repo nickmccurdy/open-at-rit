@@ -14,10 +14,11 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical
+  # order.
   #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
+  # Note: You'll currently still have to declare fixtures explicitly in
+  # integration tests -- they do not yet inherit this setting
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
@@ -40,11 +41,13 @@ class ActiveSupport::TestCase
 
   # Ensures that a given day of the week is a weekday
   def assert_weekday(day_of_week)
-    assert weekday?(Chronic.parse day_of_week), "#{day_of_week} should be a weekday"
+    assert weekday?(Chronic.parse day_of_week),
+           "#{day_of_week} should be a weekday"
   end
 
   # Ensures that a given day of the week is not a weekday
   def assert_not_weekday(day_of_week)
-    assert !weekday?(Chronic.parse day_of_week), "#{day_of_week} should not be a weekday"
+    assert !weekday?(Chronic.parse day_of_week),
+           "#{day_of_week} should not be a weekday"
   end
 end

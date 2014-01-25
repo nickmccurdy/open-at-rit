@@ -1,17 +1,17 @@
 # A Location at RIT. Every Location has a name, two lists of hours (one for
 # during the week, another for during the weekend), and an optional description
 # (displayed in a tooltip in the view, if there is one). Location data should
-# not frequently change at runtime, because the appropriate data is created in a
-# database seed. If a location is always closed during weekdays and/or weekends,
-# the appropriate times will be set to nil.
+# not frequently change at runtime, because the appropriate data is created in
+# a database seed. If a location is always closed during weekdays and/or
+# weekends, the appropriate times will be set to nil.
 class Location < ActiveRecord::Base
   include LocationsHelper
 
   # The weekdays/weekends property is a serialized String representing an Array
   # of Ranges of Integers. The Array represents all the hours for a given part
   # of the week. Each Range represents one part of the hours (open and close
-  # time). Each Integer represents the number of seconds after midnight that the
-  # Location opens or closes.
+  # time). Each Integer represents the number of seconds after midnight that
+  # the Location opens or closes.
   serialize :weekdays, Array
   serialize :weekends, Array
 
@@ -52,7 +52,8 @@ class Location < ActiveRecord::Base
     time = time.seconds_since_midnight
 
     # TODO: fix this log message
-    # logger.debug "Checking to see if #{time} is between #{start_time} and #{end_time}."
+    # logger.debug "Checking to see if #{time} is between " \
+    #              "#{start_time} and #{end_time}."
 
     # TODO: find a better way to do this that won't break when moving between
     # weekdays and weekends
@@ -61,8 +62,8 @@ class Location < ActiveRecord::Base
     end
   end
 
-  # Returns true if the Location is ever open during the appropriate part of the
-  # week.
+  # Returns true if the Location is ever open during the appropriate part of
+  # the week.
   #
   # @param [Symbol] part_of_week the part of the week that will be tested for
   #   any open times (:weekdays or :weekends)
@@ -87,12 +88,16 @@ class Location < ActiveRecord::Base
   private
 
   # A callback that runs before any Location is saved. This adds a day to end
-  # times if needed to ensure that the end times are always after their matching
-  # start times.
+  # times if needed to ensure that the end times are always after their
+  # matching start times.
   #
   # TODO: refactor
   def adjust_times
-    weekdays.map! { |time_range| correct_time_range time_range } if weekdays.present?
-    weekends.map! { |time_range| correct_time_range time_range } if weekends.present?
+    if weekdays.present?
+      weekdays.map! { |time_range| correct_time_range time_range }
+    end
+    if weekends.present?
+      weekends.map! { |time_range| correct_time_range time_range }
+    end
   end
 end
