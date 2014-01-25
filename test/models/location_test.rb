@@ -35,7 +35,7 @@ class LocationTest < ActiveSupport::TestCase
   test 'should be initialized properly' do
     assert_equal 'The Corner Store',                  @corner_store.name
     assert_equal [(8.hour.to_i)...(26.hour.to_i)],    @corner_store.weekdays
-    assert_equal [(10.5.hour.to_i)...(26.hour.to_i)], @corner_store.weekends
+    assert_equal [(10.5.hour.to_i)...(24.hour.to_i)], @corner_store.weekends
     assert_nil @corner_store.description
   end
 end
