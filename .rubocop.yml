@@ -11,10 +11,6 @@ LineLength:
 MethodLength:
   Enabled: false
 
-# Comments should start with a space.
-LeadingCommentSpace:
-  Enabled: false
-
 # Document classes and non-namespace modules.
 Documentation:
   Exclude:

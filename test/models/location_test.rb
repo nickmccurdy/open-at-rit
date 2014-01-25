@@ -8,9 +8,9 @@ class LocationTest < ActiveSupport::TestCase
     @corner_store.save!
   end
 
-  #test 'should be sorted by name'
+  # test 'should be sorted by name'
 
-  #test 'should validate its name'
+  # test 'should validate its name'
 
   test 'should know if it is open at a certain time' do
     assert_open   @corner_store, '8 am on Monday'
