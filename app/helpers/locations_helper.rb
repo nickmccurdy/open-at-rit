@@ -48,10 +48,9 @@ module LocationsHelper
     return 'closed' unless hours.present?
 
     hours.reduce '' do |memo, time_range|
-      start_time = Time.current.midnight.since(time_range.begin)
-                       .strftime(TIME_FORMAT).strip
-      end_time   = Time.current.midnight.since(time_range.end)
-                       .strftime(TIME_FORMAT).strip
+      midnight   = Time.current.midnight
+      start_time = midnight.since(time_range.begin).strftime(TIME_FORMAT).strip
+      end_time   = midnight.since(time_range.end).strftime(TIME_FORMAT).strip
 
       memo + "#{memo.empty? ? '' : ', '}#{start_time} to #{end_time}"
     end
