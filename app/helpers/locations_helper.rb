@@ -56,19 +56,14 @@ module LocationsHelper
       hours = location.weekends
     end
 
-    result = ''
-
-    hours.each do |time_range|
+    hours.reduce '' do |memo, time_range|
       start_time = Time.current.midnight.since(time_range.begin)
                        .strftime(TIME_FORMAT).strip
       end_time   = Time.current.midnight.since(time_range.end)
                        .strftime(TIME_FORMAT).strip
 
-      result << ', ' unless result.empty?
-      result << "#{start_time} to #{end_time}"
+      memo + "#{memo.empty? ? '' : ', '}#{start_time} to #{end_time}"
     end
-
-    result
   end
 
   # Returns true if the given Time is on a weekday (Monday-Friday).
