@@ -74,7 +74,7 @@ module LocationsHelper
   # @param [Time] time the Time to test (only its date matters)
   #
   # @return [Boolean] true if the Time is on a weekday
-  def is_weekday?(time)
+  def weekday?(time)
     (1..5).include? time.wday
   end
 end
