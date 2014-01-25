@@ -2,7 +2,6 @@ require 'test_helper'
 require 'chronic'
 
 class LocationTest < ActiveSupport::TestCase
-
   setup do
     @corner_store = locations :corner_store
     # Force Rails to save the object so we can test with our callbacks
@@ -45,5 +44,4 @@ class LocationTest < ActiveSupport::TestCase
     assert_equal [(10.5.hour.to_i)...(26.hour.to_i)], @corner_store.weekends
     assert_nil @corner_store.description
   end
-
 end

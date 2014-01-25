@@ -12,7 +12,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-
   ActiveRecord::Migration.check_pending!
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -48,5 +47,4 @@ class ActiveSupport::TestCase
   def assert_not_weekday(day_of_week)
     assert !is_weekday?(Chronic.parse day_of_week), "#{day_of_week} should not be a weekday"
   end
-
 end

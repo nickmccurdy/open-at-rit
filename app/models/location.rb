@@ -5,7 +5,6 @@
 # database seed. If a location is always closed during weekdays and/or weekends,
 # the appropriate times will be set to nil.
 class Location < ActiveRecord::Base
-
   include LocationsHelper
 
   # The weekdays/weekends property is a serialized String representing an Array
@@ -81,7 +80,7 @@ class Location < ActiveRecord::Base
     elsif part_of_week == :weekends
       weekends.present?
     else
-      raise ArgumentError
+      fail ArgumentError
     end
   end
 
@@ -96,5 +95,4 @@ class Location < ActiveRecord::Base
     weekdays.map! { |time_range| correct_time_range time_range } if weekdays.present?
     weekends.map! { |time_range| correct_time_range time_range } if weekends.present?
   end
-
 end

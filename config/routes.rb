@@ -7,6 +7,6 @@ OpenAtRit::Application.routes.draw do
 
   # The main page of the JSON API, which also lists all Locations
   get '/locations.json' => 'locations#index',
-    format: false,
-    defaults: { format: 'json' }
+      format: false,
+      defaults: { format: 'json' }
 end

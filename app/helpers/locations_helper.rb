@@ -1,6 +1,5 @@
 # Provides helper methods for the application's models, views, and controllers.
 module LocationsHelper
-
   # The number of locations to show per row (for screens with enough room).
   LOCATIONS_PER_ROW = 4
 
@@ -78,5 +77,4 @@ module LocationsHelper
   def is_weekday?(time)
     (1..5).include? time.wday
   end
-
 end

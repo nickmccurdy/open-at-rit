@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class LocationsControllerTest < ActionController::TestCase
-
   setup do
     @corner_store = locations :corner_store
     # Force Rails to save the object so we can test with our callbacks
@@ -13,5 +12,4 @@ class LocationsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns :locations
   end
-
 end

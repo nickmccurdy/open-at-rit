@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class LocationsHelperTest < ActionView::TestCase
-
   setup do
     @corner_store = locations :corner_store
     # Force Rails to save the object so we can test with our callbacks
@@ -21,5 +20,4 @@ class LocationsHelperTest < ActionView::TestCase
     assert_equal '10:30 am to 2:00 am', hours_for(@corner_store, :weekends)
     assert_raise(ArgumentError) { hours_for(@corner_store, :something_else) }
   end
-
 end
