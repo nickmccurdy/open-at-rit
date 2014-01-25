@@ -13,11 +13,10 @@ require 'yaml'
 # Based off of https://gist.github.com/toroidal-code/6235807
 
 module LocationScraper
-
   extend self
 
   @pages = {
-    normal:           'http://www.rit.edu/fa/diningservices/content/hours-operation',
+    normal: 'http://www.rit.edu/fa/diningservices/content/hours-operation',
     commencement:     'http://www.rit.edu/fa/diningservices/node/272',
     spring_to_summer: 'http://www.rit.edu/fa/diningservices/node/273',
     summer:           'http://www.rit.edu/fa/diningservices/node/274',
@@ -26,7 +25,7 @@ module LocationScraper
 
   def scrape(page = :normal)
     doc = Nokogiri.HTML open @pages[page]
-    #doc.css('.field-item h3').map{ |location| location.content.strip }
+    # doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').map do |node|
       if node.content == '' && node['id'] == node['name']
         title = node.next.to_s
@@ -55,9 +54,8 @@ module LocationScraper
     current = current.next while current && current.send(attribute) != cond
     current
   end
-
 end
 
 locations = LocationScraper.scrape
 puts locations.to_yaml
-#Location.create! locations
+# Location.create! locations
