@@ -2,14 +2,7 @@
 AllCops:
   Excludes:
     - db/schema.rb
-
-# Limit lines to 80 characters.
-LineLength:
-  Enabled: false
-
-# Avoid methods longer than 10 lines of code.
-MethodLength:
-  Enabled: false
+    - config/*
 
 # Document classes and non-namespace modules.
 Documentation:
