@@ -1,7 +1,7 @@
 # Common configuration.
 AllCops:
   Excludes:
-    - 'db/schema.rb'
+    - db/schema.rb
 
 # Limit lines to 80 characters.
 LineLength:
@@ -17,7 +17,8 @@ LeadingCommentSpace:
 
 # Document classes and non-namespace modules.
 Documentation:
-  Enabled: false
+  Exclude:
+    - db/migrate
 
 ##################### Rails ##################################
 
