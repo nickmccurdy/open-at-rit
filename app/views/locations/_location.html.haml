@@ -8,15 +8,15 @@
           = location.name
     .info
       .pull-middle
-        - if location.open_on?(:weekdays) || location.open_on?(:weekends)
+        - if location.weekdays? || location.weekends?
           %p
             %strong> weekdays
             \:
-            %span{class: location.open_on?(:weekdays) ? 'text-success' : 'text-danger'}= hours_for location, :weekdays
+            %span{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
           %p
             %strong> weekends
             \:
-            %span{class: location.open_on?(:weekends) ? 'text-success' : 'text-danger'}= hours_for location, :weekends
+            %span{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
         - else
           %p
             %span.text-danger always closed

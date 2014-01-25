@@ -32,29 +32,20 @@ module LocationsHelper
     end
   end
 
-  # Generates a text display of the hours of a given location during either
-  # weekdays or weekends.
+  # Generates a text display of part of a location's hours.
   #
-  # @param [Location] location the Location to display hours for
-  # @param [Symbol] part_of_week the time of the week for which the hours
-  #   should be displayed during (:weekdays or :weekends)
+  # @param [Array<Range<Integer>>] hours part of the hours for a location,
+  #   representing an certain part of the week (weekdays or weekends).
+  #   "Location.weekdays" and "Locations.weekends" will each give you a valid
+  #   value to use for this parameter, which should be an Array of Ranges of
+  #   Integers (as further explained in the documentation for Location).
   #
-  # @raise [ArgumentError] if part_of_week is set to anything other than
-  #   :weekdays or :weekends
-  #
-  # @return [String] the generated text of the Location's hours during the
-  #   appropriate part of the week, in the format "START to END, START to END,
-  #   ..."
+  # @return [String] the generated text of the hours during the appropriate
+  #   part of the week, in the format "START to END, START to END, ..."
   #
   # TODO: refactor
-  def hours_for(location, part_of_week)
-    return 'closed' unless location.open_on? part_of_week
-
-    if part_of_week == :weekdays
-      hours = location.weekdays
-    elsif part_of_week == :weekends
-      hours = location.weekends
-    end
+  def hours_for(hours)
+    return 'closed' unless hours.present?
 
     hours.reduce '' do |memo, time_range|
       start_time = Time.current.midnight.since(time_range.begin)

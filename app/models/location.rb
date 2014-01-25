@@ -40,14 +40,8 @@ class Location < ActiveRecord::Base
   def open?(time = Time.current)
     # Figure out if the time is between the hours for the appropriate part of
     # the week
-    part_of_week = weekday?(time) ? :weekdays : :weekends
-    return false unless open_on? part_of_week
-
-    if part_of_week == :weekdays
-      hours = weekdays
-    elsif part_of_week == :weekends
-      hours = weekends
-    end
+    hours = weekday?(time) ? weekdays : weekends
+    return false unless hours.present?
 
     time = time.seconds_since_midnight
 
@@ -59,29 +53,6 @@ class Location < ActiveRecord::Base
     # weekdays and weekends
     hours.any? do |time_range|
       time_range.cover?(time) || time_range.cover?(time + 1.day)
-    end
-  end
-
-  # Returns true if the Location is ever open during the appropriate part of
-  # the week.
-  #
-  # @param [Symbol] part_of_week the part of the week that will be tested for
-  #   any open times (:weekdays or :weekends)
-  #
-  # @raise [ArgumentError] if part_of_week is set to anything other than
-  #   :weekdays or :weekends
-  #
-  # @return [Boolean] true if the Location is ever open during the appropriate
-  #   part of the week
-  #
-  # TODO: refactor
-  def open_on?(part_of_week)
-    if part_of_week == :weekdays
-      weekdays.present?
-    elsif part_of_week == :weekends
-      weekends.present?
-    else
-      fail ArgumentError
     end
   end
 

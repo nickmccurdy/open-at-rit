@@ -24,12 +24,6 @@ class LocationTest < ActiveSupport::TestCase
     assert_closed @corner_store, '2 am on Sunday'
   end
 
-  test 'should know if it is open during the week and weekend' do
-    assert @corner_store.open_on?(:weekdays), 'it should be open on weekdays'
-    assert @corner_store.open_on?(:weekends), 'it should be open on weekends'
-    assert_raise(ArgumentError) { @corner_store.open_on?(:the_moon) }
-  end
-
   test 'should know if a certain time is a weekday' do
     %w[Monday Tuesday Wednesday Thursday Friday].each do |day|
       assert_weekday day
