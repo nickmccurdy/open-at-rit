@@ -26,26 +26,6 @@ class Location < ActiveRecord::Base
   # A callback that runs before any Location is saved.
   before_save :adjust_times
 
-  # Returns a corrected version of a time Range that ensures that the close
-  # time is after the open time. If a Range needs to be corrected, a copy of it
-  # with the end advanced a day is returned. Otherwise, the unmodified Range is
-  # returned.
-  #
-  # @param [Range] time_range a Range of Integers to correct
-  #
-  # @return [Range] a corrected copy of the Range, or the original Range if it
-  #   does not need to be corrected
-  #
-  # TODO: refactor
-  def self.correct_time_range(time_range)
-    if time_range.begin < time_range.end
-      time_range
-    else
-      new_end = time_range.end + 1.day
-      time_range.begin...new_end
-    end
-  end
-
   # Returns true if the given Time is on a weekday (Monday-Friday).
   #
   # @param [Time] time the Time to test (only its date matters)
@@ -91,7 +71,18 @@ class Location < ActiveRecord::Base
   #
   # TODO: refactor
   def adjust_times
-    adjust = proc { |time_range| Location.correct_time_range time_range }
+    # Returns a corrected version of a time Range that ensures that the close
+    # time is after the open time.
+    #
+    # TODO: refactor
+    adjust = proc do |time_range|
+      if time_range.begin < time_range.end
+        time_range
+      else
+        new_end = time_range.end + 1.day
+        time_range.begin...new_end
+      end
+    end
 
     weekdays.map!(&adjust) if weekdays.present?
     weekends.map!(&adjust) if weekends.present?
