@@ -13,11 +13,9 @@ require 'yaml'
 # Based off of https://gist.github.com/toroidal-code/6235807
 
 module LocationScraper
-  extend self
-
   HOURS_PAGE = 'http://www.rit.edu/fa/diningservices/content/hours-operation'
 
-  def scrape
+  def self.scrape
     doc = Nokogiri.HTML open HOURS_PAGE
     # doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').map do |node|
@@ -44,7 +42,7 @@ module LocationScraper
 
   private
 
-  def next_node_with(current, attribute, cond)
+  def self.next_node_with(current, attribute, cond)
     current = current.next while current && current.send(attribute) != cond
     current
   end
