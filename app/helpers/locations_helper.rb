@@ -1,4 +1,4 @@
-# Provides helper methods for the application's models, views, and controllers.
+# Provides helper methods for the application's views and controllers.
 module LocationsHelper
   # The number of locations to show per row (for screens with enough room).
   LOCATIONS_PER_ROW = 4
@@ -11,26 +11,6 @@ module LocationsHelper
   # The format string to use for displaying start/end times in views. Used by
   # strftime.
   TIME_FORMAT = '%l:%M %P'
-
-  # Returns a corrected version of a time Range that ensures that the close
-  # time is after the open time. If a Range needs to be corrected, a copy of it
-  # with the end advanced a day is returned. Otherwise, the unmodified Range is
-  # returned.
-  #
-  # @param [Range] time_range a Range of Integers to correct
-  #
-  # @return [Range] a corrected copy of the Range, or the original Range if it
-  #   does not need to be corrected
-  #
-  # TODO: refactor
-  def correct_time_range(time_range)
-    if time_range.begin < time_range.end
-      time_range
-    else
-      new_end = time_range.end + 1.day
-      time_range.begin...new_end
-    end
-  end
 
   # Generates a text display of part of a location's hours.
   #
@@ -54,14 +34,5 @@ module LocationsHelper
 
       memo + "#{memo.empty? ? '' : ', '}#{start_time} to #{end_time}"
     end
-  end
-
-  # Returns true if the given Time is on a weekday (Monday-Friday).
-  #
-  # @param [Time] time the Time to test (only its date matters)
-  #
-  # @return [Boolean] true if the Time is on a weekday
-  def weekday?(time)
-    (1..5).include? time.wday
   end
 end
