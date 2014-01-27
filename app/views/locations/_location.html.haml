@@ -1,22 +1,21 @@
 %div{class: "col-sm-#{LocationsHelper::LOCATION_WIDTH}"}
-  .well.location{class: location.open? ? 'open' : 'closed'}
-    .name
-      .pull-middle
+  .panel.location{class: location.open? ? 'panel-success' : 'panel-danger'}
+    .panel-heading
+      %h2.panel-title
         - if location.description
           %abbr{title: location.description}= location.name
         - else
           = location.name
-    .info
-      .pull-middle
-        - if location.weekdays? || location.weekends?
-          %p
-            %strong> weekdays
-            \:
-            %span{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
-          %p
-            %strong> weekends
-            \:
-            %span{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
-        - else
-          %p
-            %span.text-danger always closed
+    .panel-body
+      - if location.weekdays? || location.weekends?
+        %p
+          %strong> weekdays
+          \:
+          %span{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
+        %p
+          %strong> weekends
+          \:
+          %span{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
+      - else
+        %p
+          %span.text-danger always closed
