@@ -15,16 +15,10 @@ require 'yaml'
 module LocationScraper
   extend self
 
-  @pages = {
-    normal: 'http://www.rit.edu/fa/diningservices/content/hours-operation',
-    commencement:     'http://www.rit.edu/fa/diningservices/node/272',
-    spring_to_summer: 'http://www.rit.edu/fa/diningservices/node/273',
-    summer:           'http://www.rit.edu/fa/diningservices/node/274',
-    summer_to_fall:   'http://www.rit.edu/fa/diningservices/node/275'
-  }
+  HOURS_PAGE = 'http://www.rit.edu/fa/diningservices/content/hours-operation'
 
-  def scrape(page = :normal)
-    doc = Nokogiri.HTML open @pages[page]
+  def scrape
+    doc = Nokogiri.HTML open HOURS_PAGE
     # doc.css('.field-item h3').map{ |location| location.content.strip }
     doc.css('h3 a').map do |node|
       if node.content == '' && node['id'] == node['name']
