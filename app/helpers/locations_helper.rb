@@ -25,7 +25,7 @@ module LocationsHelper
   #
   # TODO: refactor
   def hours_for(hours)
-    return 'closed' unless hours.present?
+    return 'closed' if hours.blank?
 
     hours.reduce '' do |memo, time_range|
       midnight   = Time.current.midnight

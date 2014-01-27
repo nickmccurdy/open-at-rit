@@ -48,7 +48,7 @@ class Location < ActiveRecord::Base
     # Figure out if the time is between the hours for the appropriate part of
     # the week
     hours = Location.weekday?(time) ? weekdays : weekends
-    return false unless hours.present?
+    return false if hours.blank?
 
     time = time.seconds_since_midnight
 
