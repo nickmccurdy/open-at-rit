@@ -5,8 +5,9 @@
     - @locations.each_slice LocationsHelper::LOCATIONS_PER_ROW do |locations|
       .row.location-row= render locations
   - else
-    %h3 No locations found....
-    %h3
-      This is probably a bug, please
-      = succeed "." do
-        %a{href: "https://github.com/thenickperson/open-at-rit/issues/new", target: "_blank"} report an issue
+    .jumbotron
+      %h3 No locations found....
+      %h3
+        This is probably a bug, please
+        = succeed "." do
+          %a{href: "https://github.com/thenickperson/open-at-rit/issues/new", target: "_blank"} report an issue
