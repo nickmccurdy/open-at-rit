@@ -6,7 +6,8 @@ ruby '2.1.0'
 gem 'rails', '~> 4.0'
 
 # Use thin as the server
-gem 'thin', '~> 1.5'
+# TODO: Fix thin on Ruby 2.1 and re-enable it
+#gem 'thin', '~> 1.5'
 
 # Use sqlite3 and postgresql as the databases for Active Record
 group :production do
