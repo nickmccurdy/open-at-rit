@@ -28,7 +28,7 @@ __In development. Fairly unstable.__
 - a simple JSON API
 
 ## Installation
-Before you start, install and use Ruby 2.0. Make sure you have the bundler gem. It will install Rails 4 for you.
+Before you start, install and use Ruby 2.1. Make sure you have the bundler gem. It will install Rails 4 for you.
 ```bash
 git clone https://github.com/thenickperson/open-at-rit.git
 cd open-at-rit
@@ -38,7 +38,7 @@ rails server
 ```
 
 ## Technology Stack
-- Ruby 2
+- Ruby 2.1
 - Rails 4
 - JavaScript
 - SASS
