@@ -52,13 +52,11 @@ class Location < ActiveRecord::Base
 
     time = time.seconds_since_midnight
 
-    # TODO: fix this log message
-    # logger.debug "Checking to see if #{time} is between " \
-    #              "#{start_time} and #{end_time}."
-
     # TODO: find a better way to do this that won't break when moving between
     # weekdays and weekends
     hours.any? do |time_range|
+      logger.debug "Checking to see if #{time} is between " \
+                   "#{time_range.begin} and #{time_range.end}."
       time_range.cover?(time) || time_range.cover?(time + 1.day)
     end
   end
@@ -79,8 +77,7 @@ class Location < ActiveRecord::Base
       if time_range.begin < time_range.end
         time_range
       else
-        new_end = time_range.end + 1.day
-        time_range.begin...new_end
+        time_range.begin...(time_range.end + 1.day)
       end
     end
 
