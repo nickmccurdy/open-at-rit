@@ -5,8 +5,6 @@
 # a database seed. If a location is always closed during weekdays and/or
 # weekends, the appropriate times will be set to nil.
 class Location < ActiveRecord::Base
-  include IceCube
-
   # The weekdays/weekends property is a serialized String representing an Array
   # of Ranges of Integers. The Array represents all the hours for a given part
   # of the week. Each Range represents one part of the hours (open and close
@@ -61,7 +59,7 @@ class Location < ActiveRecord::Base
     part_of_week.any? do |time_range|
       start_time = time.midnight + time_range.begin
       end_time   = time.midnight + time_range.end
-      Schedule.new(start_time, end_time: end_time).occurs_at? time
+      IceCube::Schedule.new(start_time, end_time: end_time).occurs_at? time
     end
   end
 
