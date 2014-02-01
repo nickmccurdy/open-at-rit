@@ -4,6 +4,8 @@
 require 'coveralls'
 Coveralls.wear! 'rails'
 
+require 'factory_girl'
+require './test/factories/locations'
 require 'zonebie'
 Zonebie.set_random_timezone
 
@@ -23,6 +25,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
+  include FactoryGirl::Syntax::Methods
   include LocationsHelper
 
   # Ensures that a location is open at a given time
