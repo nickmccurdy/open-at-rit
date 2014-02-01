@@ -58,6 +58,7 @@ end
 group :test do
   #gem 'simplecov', '~> 0.7', require: false
   gem 'coveralls', require: false
+  gem 'factory_girl_rails'
   gem 'zonebie'
 end
 

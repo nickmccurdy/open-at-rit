@@ -2,9 +2,7 @@ require 'test_helper'
 
 class LocationsHelperTest < ActionView::TestCase
   setup do
-    @corner_store = locations :corner_store
-    # Force Rails to save the object so we can test with our callbacks
-    @corner_store.save!
+    @corner_store = create :location
   end
 
   test 'should get the number of locations per row' do
