@@ -1,6 +1,6 @@
 # Open at RIT
-[![Build Status](https://secure.travis-ci.org/thenickperson/open-at-rit.png?branch=master)](http://travis-ci.org/thenickperson/open-at-rit)
-[![Dependency Status](https://gemnasium.com/thenickperson/open-at-rit.png)](https://gemnasium.com/thenickperson/open-at-rit)
+[![Build Status](https://secure.travis-ci.org/nicolasmccurdy/open-at-rit.png?branch=master)](http://travis-ci.org/nicolasmccurdy/open-at-rit)
+[![Dependency Status](https://gemnasium.com/nicolasmccurdy/open-at-rit.png)](https://gemnasium.com/nicolasmccurdy/open-at-rit)
 [![Code Climate](https://codeclimate.com/github/thenickperson/open-at-rit.png)](https://codeclimate.com/github/thenickperson/open-at-rit)
 [![Coverage Status](https://coveralls.io/repos/thenickperson/open-at-rit/badge.png)](https://coveralls.io/r/thenickperson/open-at-rit)
 
