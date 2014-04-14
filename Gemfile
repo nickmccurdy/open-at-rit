@@ -60,6 +60,7 @@ group :test do
 end
 
 group :development do
+  gem 'spring'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'foreman'
