@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use Rails 4
-gem 'rails', '~> 4.0'
+gem 'rails', '= 4.0.4'
 
 # Use thin as the server
 # TODO: Fix thin on Ruby 2.1 and re-enable it
@@ -23,7 +23,7 @@ end
 gem 'haml'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use CoffeeScript for scripts
 gem 'coffee-rails'
