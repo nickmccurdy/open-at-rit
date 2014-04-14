@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use Rails 4
-gem 'rails', '= 4.0.4'
+gem 'rails', '= 4.1'
 
 # Use thin as the server
 # TODO: Fix thin on Ruby 2.1 and re-enable it
