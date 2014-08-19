@@ -3,7 +3,9 @@ require 'chronic'
 
 class LocationTest < ActiveSupport::TestCase
   setup do
-    @corner_store = create :location
+    @corner_store = locations :corner_store
+    # Force Rails to save the object so we can test with our callbacks
+    @corner_store.save!
   end
 
   # test 'should be sorted by name'

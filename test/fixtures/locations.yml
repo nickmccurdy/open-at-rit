@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+corner_store:
+  name: The Corner Store
+  hours:
+  - [!ruby/range <%= 8.hour %>...<%= 2.hour %>]
+  - [!ruby/range <%= 10.5.hour %>...<%= 24.hour %>]
