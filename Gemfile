@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
-
 # Use Rails 4
-gem 'rails', '~> 4.0'
+gem 'rails', '= 4.1'
 
 # Use thin as the server
 # TODO: Fix thin on Ruby 2.1 and re-enable it
@@ -25,7 +23,7 @@ end
 gem 'haml'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use CoffeeScript for scripts
 gem 'coffee-rails'
@@ -62,6 +60,7 @@ group :test do
 end
 
 group :development do
+  gem 'spring'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'foreman'
