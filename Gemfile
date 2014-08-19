@@ -44,6 +44,7 @@ group :doc do
 end
 
 group :test do
+  gem 'codeclimate-test-reporter', require: nil
   gem 'zonebie'
 end
 
