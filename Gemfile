@@ -71,6 +71,3 @@ end
 # Time stuff
 gem 'chronic', '~> 0.9'
 gem 'ice_cube'
-
-# Use New Relic for monitoring
-gem 'newrelic_rpm'
