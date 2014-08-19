@@ -1,8 +1,8 @@
 # Common configuration.
 AllCops:
-  Excludes:
+  Exclude:
     - db/schema.rb
-    - config/*
+    - config/**/*
 
 # Document classes and non-namespace modules.
 Documentation:
