@@ -1,8 +1,5 @@
-# require 'simplecov'
-# SimpleCov.start 'rails'
-
-require 'coveralls'
-Coveralls.wear! 'rails'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 require 'zonebie'
 Zonebie.set_random_timezone
