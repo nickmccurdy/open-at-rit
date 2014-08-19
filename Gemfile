@@ -36,8 +36,6 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.1'
 
-gem 'yard'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -50,8 +48,6 @@ end
 
 group :development do
   gem 'spring'
-  gem 'yard-activerecord'
-  gem 'redcarpet'
 end
 
 # Time stuff
