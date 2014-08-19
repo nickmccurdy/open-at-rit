@@ -2,6 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/nicolasmccurdy/open-at-rit.png?branch=master)](http://travis-ci.org/nicolasmccurdy/open-at-rit)
 [![Dependency Status](https://gemnasium.com/nicolasmccurdy/open-at-rit.png)](https://gemnasium.com/nicolasmccurdy/open-at-rit)
 [![Code Climate](https://codeclimate.com/github/thenickperson/open-at-rit.png)](https://codeclimate.com/github/thenickperson/open-at-rit)
+[![Test Coverage](https://codeclimate.com/github/nicolasmccurdy/open-at-rit/badges/coverage.svg)](https://codeclimate.com/github/nicolasmccurdy/open-at-rit)
 
 Open at RIT is a simple one-page web application that makes it easy to check
 which dining locations are currently open at the [Rochester Institute of
