@@ -15,9 +15,8 @@ Chronic.time_class = Time.zone
 
 # Parses a String with Chronic and returns a Time representation of it
 #
-# @param [String] time_string the string to parse (any valid Chronic string)
-#
-# @return [Time] the Time representation of the string created by Chronic
+# ==== Attributes
+# * +time_string+ - The String to parse (any valid Chronic String).
 def parse_time_range(time_string)
   return nil if time_string.nil?
 
