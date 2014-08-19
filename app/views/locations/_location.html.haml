@@ -9,9 +9,10 @@
     .panel-body
       - if location.weekdays? || location.weekends?
         %dl
-          %dt> Weekdays
+          %dt Weekdays
           %dd{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
-          %dt> Weekends
+
+          %dt Weekends
           %dd{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
       - else
         %span.text-danger always closed
