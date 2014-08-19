@@ -28,9 +28,8 @@ class Location < ActiveRecord::Base
 
   # Returns true if the given Time is on a weekday (Monday-Friday).
   #
-  # @param [Time] time the Time to test (only its date matters)
-  #
-  # @return [Boolean] true if the Time is on a weekday
+  # ==== Attributes
+  # * +time+ - The Time to test (only its date matters).
   def self.weekday?(time)
     (1..5).include? time.wday
   end
@@ -38,12 +37,11 @@ class Location < ActiveRecord::Base
   # Returns true if the Location is open at the given Time. This is likely the
   # most important method in the application.
   #
-  # @param [Time] time the Time that the user wants to know if the Location is
-  #   open during (defaults to the current time if it is not given)
-  #
-  # @return [Boolean] true if the Location is open at the given Time
-  #
   # TODO: refactor
+  #
+  # ==== Attributes
+  # * +time+ - The Time that the user wants to know if the Location is
+  #   open during (defaults to the current time if it is not given).
   def open?(time = Time.current)
     # Figure out if the time is between the hours for the appropriate part of
     # the week

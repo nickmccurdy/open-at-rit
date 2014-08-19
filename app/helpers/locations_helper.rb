@@ -12,18 +12,18 @@ module LocationsHelper
   # strftime.
   TIME_FORMAT = '%l:%M %P'
 
-  # Generates a text display of part of a location's hours.
+  # Returns a human readable String representing part of a location's hours.
+  # This will represent the appropriate part of the week, in the format
+  # "START to END, START to END, ...".
   #
-  # @param [Array<Range<Integer>>] hours part of the hours for a location,
+  # TODO: refactor
+  #
+  # ==== Attributes
+  # * +hours+ - Part of the hours for a location,
   #   representing an certain part of the week (weekdays or weekends).
   #   "Location.weekdays" and "Locations.weekends" will each give you a valid
   #   value to use for this parameter, which should be an Array of Ranges of
   #   Integers (as further explained in the documentation for Location).
-  #
-  # @return [String] the generated text of the hours during the appropriate
-  #   part of the week, in the format "START to END, START to END, ..."
-  #
-  # TODO: refactor
   def hours_for(hours)
     return 'closed' if hours.blank?
 
