@@ -48,11 +48,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.1)
-    factory_girl (4.4.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.4.1)
-      factory_girl (~> 4.4.0)
-      railties (>= 3.0.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -159,7 +154,6 @@ DEPENDENCIES
   chronic (~> 0.9)
   coffee-rails
   coveralls
-  factory_girl_rails
   haml
   ice_cube
   jbuilder (~> 2.1)
