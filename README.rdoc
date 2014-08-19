@@ -43,8 +43,8 @@ Before you start, install and use Ruby 2.1. Make sure you have the bundler gem. 
 - Heroku (for production)
 
 == Updating Hours
-This app currently uses the `db/locations.yml` file to store information on
-locations and their hours. This data file must be updated manually. `rake
-db:seed` will use this file to generate the database of locations from this
+This app currently uses the <tt>db/locations.yml</tt> file to store information on
+locations and their hours. This data file must be updated manually. <tt>rake
+db:seed</tt> will use this file to generate the database of locations from this
 file. After that, the database should not need to be modified unless hours
 or locations need to be updated.
