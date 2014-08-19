@@ -50,14 +50,14 @@ class Location < ActiveRecord::Base
     hours = Location.weekday?(time) ? weekdays : weekends
     return false if hours.blank?
 
-    time = time.seconds_since_midnight
-
     # TODO: find a better way to do this that won't break when moving between
     # weekdays and weekends
     hours.any? do |time_range|
       logger.debug "Checking to see if #{time} is between " \
                    "#{time_range.begin} and #{time_range.end}."
-      time_range.cover?(time) || time_range.cover?(time + 1.day)
+      start_time = time.midnight + time_range.begin
+      end_time   = time.midnight + time_range.end
+      IceCube::Schedule.new(start_time, end_time: end_time).occurs_at? time
     end
   end
 
