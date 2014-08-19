@@ -1,9 +1,6 @@
 # require 'simplecov'
 # SimpleCov.start 'rails'
 
-require 'coveralls'
-Coveralls.wear! 'rails'
-
 require 'zonebie'
 Zonebie.set_random_timezone
 

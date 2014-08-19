@@ -44,8 +44,6 @@ group :doc do
 end
 
 group :test do
-  #gem 'simplecov', '~> 0.7', require: false
-  gem 'coveralls', require: false
   gem 'zonebie'
 end
 
