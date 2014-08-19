@@ -8,14 +8,10 @@
           = location.name
     .panel-body
       - if location.weekdays? || location.weekends?
-        %p
-          %strong> weekdays
-          \:
-          %span{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
-        %p
-          %strong> weekends
-          \:
-          %span{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
+        %dl
+          %dt> Weekdays
+          %dd{class: location.weekdays? ? 'text-success' : 'text-danger'}= hours_for location.weekdays
+          %dt> Weekends
+          %dd{class: location.weekends? ? 'text-success' : 'text-danger'}= hours_for location.weekends
       - else
-        %p
-          %span.text-danger always closed
+        %span.text-danger always closed
