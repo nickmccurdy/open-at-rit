@@ -1,3 +1,6 @@
+= Deprecated
+Use {RIT Mobile}[http://www.rit.edu/mobile/].
+
 = Open at RIT
 {<img src="https://travis-ci.org/nicolasmccurdy/open-at-rit.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/nicolasmccurdy/open-at-rit]
 {<img src="https://gemnasium.com/nicolasmccurdy/open-at-rit.svg" alt="Dependency Status" />}[https://gemnasium.com/nicolasmccurdy/open-at-rit]
